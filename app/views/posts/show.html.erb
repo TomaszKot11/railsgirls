@@ -1,3 +1,23 @@
 <%= @post.name %>
-<br/>
+<br>
 <%= @post.description %>
+
+<h2>Dodaj komentarz</h2>
+
+<%= form_for @comment do |form| %>
+
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+
+  <%=  form.hidden_field :post_id, :value => @post.id %>
+
+  <%= form.submit %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+  <br>
+  <hr/>
+  <%= comment.content %>
+  <br>
+  <hr/>
+<% end %>
