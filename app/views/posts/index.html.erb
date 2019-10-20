@@ -1,0 +1,11 @@
+<div class="jumbotron">
+    <h1>To jest index!</h1>
+    <% @posts.each do |post| %>
+        <%= post.name %>
+        <%= link_to 'Show the post', post, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning' %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:  'btn btn-danger' %>
+        <hr/>
+        <%= post.description %>
+    <% end %>
+</div>
